@@ -6,7 +6,6 @@ import "../css/Map.css";
 
 const Map = () => {
   const [mapPopulated, setMapPopulated] = useState(false);
-  const [shouldDisplayAmenities, setShouldDisplayAmenities] = useState(false);
 
   const searchClickHandler = () => {
     if (!mapPopulated) {
