@@ -1,21 +1,28 @@
 import MapControls from "./MapControls";
 
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../css/Map.css";
 
-const Map = () => {
-  const [mapPopulated, setMapPopulated] = useState(false);
+const Map = (props: any) => {
+  const navigate = useNavigate();
 
   const searchClickHandler = () => {
-    if (!mapPopulated) {
-      setMapPopulated(true);
+    if (!props.populated) {
+      navigate("/map-populated");
     }
   };
 
   return (
-    <section id="map" className={mapPopulated ? "populated" : ""}>
-      <MapControls populated={mapPopulated} onSearchClicked={searchClickHandler} />
+    <section id="map" className={props.populated ? "populated" : ""}>
+      <MapControls
+        populated={props.populated}
+        onSearchClicked={searchClickHandler}
+        onParkingClicked={props.onParkingClicked}
+        onBikeClicked={props.onBikeClicked}
+        onScooterClicked={props.onScooterClicked}
+      />
+      {props.children}
     </section>
   );
 };

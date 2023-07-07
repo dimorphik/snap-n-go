@@ -4,7 +4,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import RRoot from "./routes/RRoot";
 import RMap from "./routes/RMap";
-
+import RMapPopulated from "./routes/RMapPopulated";
 import RouterError from "./components/RouterError";
 
 import "./index.css";
@@ -20,6 +20,10 @@ const router = createHashRouter([
   {
     path: "/map",
     element: <RMap />,
+  },
+  {
+    path: "/map-populated",
+    element: <RMapPopulated />,
   },
 ]);
 

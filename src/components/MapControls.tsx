@@ -3,9 +3,7 @@ const MapControls = (props: any) => {
     <article id="map-controls">
       <section id="search" onClick={props.onSearchClicked}>
         <span className="icon search"></span>
-        <span className="search-text">
-          {props.populated ? "California College of the Arts" : "Search"}
-        </span>
+        <span className="search-text">{props.populated ? "California College of the Arts" : "Search"}</span>
         <span className="icon profile"></span>
       </section>
       <section id="utilities">
@@ -14,9 +12,9 @@ const MapControls = (props: any) => {
         <span className="icon camera"></span>
       </section>
       <section id="bottom-controls">
-        <button className="icon parking"></button>
-        <button className="icon bike"></button>
-        <button className="icon scooter"></button>
+        <button className="icon parking" onClick={props.onParkingClicked}></button>
+        <button className="icon bike" onClick={props.onBikeClicked}></button>
+        <button className="icon scooter" onClick={props.onScooterClicked}></button>
       </section>
     </article>
   );

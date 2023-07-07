@@ -171,3 +171,24 @@ button.icon {
     background-image: url("../media/icons/scooter-active.png");
   }
 }
+
+.bubble {
+  position: absolute;
+  animation-name: fadeIn;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.68, 0.21, 0.42, 2.46);
+  width: 59px;
+  height: 55px;
+}
+
+/* this animation causes text to fade in when a page loads. Only used in the "large" form factor. */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
