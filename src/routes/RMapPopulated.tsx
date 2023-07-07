@@ -7,17 +7,17 @@ import { useState } from "react";
 
 const data = {
   parkingBubbles: [
-    { left: 180, top: 405 },
-    { left: 340, top: 361 },
-    { left: 301, top: 253 },
+    { left: 90, top: 405 },
+    { left: 250, top: 361 },
+    { left: 211, top: 253 },
   ],
   bikeBubbles: [
-    { left: 267, top: 302 },
-    { left: 125, top: 523 },
+    { left: 177, top: 302 },
+    { left: 35, top: 523 },
   ],
   scooterBubbles: [
-    { left: 254, top: 445 },
-    { left: 208, top: 254 },
+    { left: 164, top: 445 },
+    { left: 118, top: 254 },
   ],
 };
 const RMapPopulated = () => {
