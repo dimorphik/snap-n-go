@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/snap-n-go/static/css/main.277b43a2.css",
-    "main.js": "/snap-n-go/static/js/main.a3cd7892.js",
+    "main.js": "/snap-n-go/static/js/main.618c1ff6.js",
     "static/js/787.505831ff.chunk.js": "/snap-n-go/static/js/787.505831ff.chunk.js",
     "static/media/map.png": "/snap-n-go/static/media/map.821f9160294b14ab70ca.png",
     "static/media/map-default.png": "/snap-n-go/static/media/map-default.83f9d132443adecf0e64.png",
@@ -13,11 +13,11 @@
     "static/media/bike-active.png": "/snap-n-go/static/media/bike-active.63026f44727b4ee3989d.png",
     "index.html": "/snap-n-go/index.html",
     "main.277b43a2.css.map": "/snap-n-go/static/css/main.277b43a2.css.map",
-    "main.a3cd7892.js.map": "/snap-n-go/static/js/main.a3cd7892.js.map",
+    "main.618c1ff6.js.map": "/snap-n-go/static/js/main.618c1ff6.js.map",
     "787.505831ff.chunk.js.map": "/snap-n-go/static/js/787.505831ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.277b43a2.css",
-    "static/js/main.a3cd7892.js"
+    "static/js/main.618c1ff6.js"
   ]
 }
