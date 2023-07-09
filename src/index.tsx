@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
-import RRoot from "./routes/RRoot";
-import RMap from "./routes/RMap";
-import RMapPopulated from "./routes/RMapPopulated";
+import Root from "./routes/Root";
+import Top from "./routes/Top";
+import Navigator from "./routes/Navigator";
 import RouterError from "./components/RouterError";
 
 import "./index.css";
@@ -14,16 +14,16 @@ import reportWebVitals from "./reportWebVitals";
 const router = createHashRouter([
   {
     path: "/",
-    element: <RRoot />,
+    element: <Root />,
     errorElement: <RouterError />,
   },
   {
-    path: "/map",
-    element: <RMap />,
+    path: "/top",
+    element: <Top />,
   },
   {
-    path: "/map-populated",
-    element: <RMapPopulated />,
+    path: "/navigator",
+    element: <Navigator />,
   },
 ]);
 

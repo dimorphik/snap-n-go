@@ -1,13 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Ubuntu:wght@400;700&display=swap");
+
+:root {
+  --doc-height: 100%;
+  --map-top-hidden: -50%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh; /* fallback for Js load */
+  height: var(--doc-height);
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  overflow: hidden;
+}
+
 body {
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#splash {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100vh;
+  height: var(--doc-height);
+}
+
+#splash img {
+  align-self: center;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.68, 0.21, 0.42, 2.46);
+}
+
+#splash p {
+  position: relative;
+  animation-name: slideFromLeft;
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  align-self: center;
+  color: #6f3fd3;
+  font-weight: bold;
+  font-size: 1.2rem;
+  left: -100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nunito", Helvetica, sans-serif;
+}
 #root {
   width: 100%;
   max-width: 585px;
   margin: 0 auto;
+}
+
+#map {
+  position: relative;
+  max-width: 585px;
+  background-image: url("./media/images/map-default.png");
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-position: center;
+  top: 0;
+  height: var(--doc-height);
+  filter: brightness(100%);
+  transition: all 0.5s ease-in-out;
+}
+
+#map.populated {
+  background-image: url("./media/images/map.png");
+}
+
+#map.hidden {
+  top: var(--map-top-hidden);
+  filter: brightness(20%);
+}
+
+#map > img {
+  display: block;
+  max-width: 100%;
+}
+
+#map-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+}
+
+#search {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 56px;
+  background-color: #fff;
+  width: 80%;
+  margin: 2rem auto 0 auto;
+  padding: 0 1rem;
+  align-items: center;
+  border-radius: 8px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+  cursor: pointer;
+}
+
+.icon {
+  display: block;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.icon.search {
+  background-image: url("./media/icons/search.png");
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+#map .search-text {
+  flex-grow: 1;
+  color: #6f6f6f;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#map:not(.populated) .search-text {
+  color: #6f6f6f;
+}
+
+#map.populated .search-text {
+  color: #000;
+}
+
+.icon.profile {
+  background-image: url("./media/icons/profile.png");
+  width: 30px;
+  height: 30px;
+}
+
+#utilities {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  height: 56px;
+  width: 80%;
+  margin: 0.5rem auto 0 auto;
+  padding: 0;
+  align-items: center;
+}
+
+.icon.filter {
+  background-image: url("./media/icons/filter.png");
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+.icon.toggle {
+  background-image: url("./media/icons/maplist-map.png");
+  width: 109px;
+  height: 40px;
+}
+
+.icon.camera {
+  background-image: url("./media/icons/camera.png");
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+#bottom-controls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+button.icon {
+  background-color: transparent;
+  border: none;
+  width: 100px;
+  height: 54px;
+  margin: 0 1px 20px 1px;
+}
+
+.icon.parking {
+  background-image: url("./media/icons/pill-parking.png");
+}
+
+.icon.parking.active {
+  background-image: url("./media/icons/pill-parking-active.png");
+}
+
+.icon.bike {
+  background-image: url("./media/icons/pill-bike.png");
+}
+
+.icon.bike.active {
+  background-image: url("./media/icons/pill-bike-active.png");
+}
+
+.icon.scooter {
+  background-image: url("./media/icons/pill-scooter.png");
+}
+
+.icon.scooter.active {
+  background-image: url("./media/icons/pill-scooter-active.png");
+}
+
+.bubble {
+  position: absolute;
+  animation-name: fadeIn;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.68, 0.21, 0.42, 2.46);
+  width: 59px;
+  height: 55px;
+}
+
+/* this animation causes text to fade in when a page loads. Only used in the "large" form factor. */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* this animation causes text to slide in from the left when a page loads. Only used in the "large" form factor. */
+@keyframes slideFromLeft {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+#popover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--doc-height);
+  background-color: #fff;
+  height: 100vh; /* fallback for Js load */
+  height: var(--doc-height);
+  transition: top 0.5s ease-in-out;
+}
+
+#popover.active {
+  top: 0;
+}
+
+#popover h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+#popover p {
+  margin: 0;
+}
+
+#popover li > p {
+  margin: 0 0 1rem 0;
+}
+
+#popover ul {
+  list-style-type: none;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+#popover li.content {
+  flex-grow: 1;
+}
+
+#popover .header-icon {
+  display: block;
+  width: 24px;
+  height: 29px;
+  padding-top: 0.25rem;
+  padding-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+}
+
+#popover .header-icon.parking {
+  background-image: url("./media/icons/bw-car.png");
+}
+#popover .header-icon.bike {
+  background-image: url("./media/icons/bw-bike.png");
+}
+#popover .header-icon.scooter {
+  background-image: url("./media/icons/bw-scooter.png");
+}
+
+#popover .close-button {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("./media/icons/button-close-popover.png");
+}
+
+#popover figure {
+  position: absolute;
+  width: 334px;
+  height: 200px;
+  left: 0;
+  right: 0;
+  margin: 1rem auto 0 auto;
+}
+
+#popover figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#popover figure figcaption {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #6f3fd3;
+  opacity: 0.85;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#popover h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1.4rem 0 0 0;
+}
+
+#popover p.details {
+  color: #818181;
+}
+
+.info-icon {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+
+.info-icon span {
+  display: block;
+  padding-right: 0.5rem;
+}
+
+.info-icon-group {
+  margin-top: 230px;
+}
+
+.info-icon-group button {
+  display: block;
+  background-color: #6f3fd3;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 7px 10px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+  margin: 240px auto 1.5rem auto;
+}
+
+.bw-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+}
+
+.bw-icon.bike {
+  background-image: url("./media/icons/bw-bike.png");
+}
+.bw-icon.car {
+  background-image: url("./media/icons/bw-car.png");
+}
+.bw-icon.charging-bolt {
+  background-image: url("./media/icons/bw-charging-bolt.png");
+}
+.bw-icon.clock {
+  background-image: url("./media/icons/bw-clock.png");
+}
+.bw-icon.covered-parking {
+  background-image: url("./media/icons/bw-covered-parking.png");
+}
+.bw-icon.dollar-sign-check {
+  background-image: url("./media/icons/bw-dollar-sign-check.png");
+}
+.bw-icon.dollar-sign {
+  background-image: url("./media/icons/bw-dollar-sign.png");
+}
+.bw-icon.e-scooter {
+  background-image: url("./media/icons/bw-e-scooter.png");
+}
+.bw-icon.ev-charging {
+  background-image: url("./media/icons/bw-ev-charging.png");
+}
+.bw-icon.location {
+  background-image: url("./media/icons/bw-location.png");
+}
+.bw-icon.lock {
+  background-image: url("./media/icons/bw-lock.png");
+}
+.bw-icon.moped {
+  background-image: url("./media/icons/bw-moped.png");
+}
+.bw-icon.parking {
+  background-image: url("./media/icons/bw-parking.png");
+}
+.bw-icon.scooter {
+  background-image: url("./media/icons/bw-scooter.png");
+}
+
+@media screen and (min-width: 500px) {
+  .icon.search {
+    width: 36px;
+    height: 36px;
+    margin-right: 1rem;
+  }
+
+  #map .search-text {
+    font-size: 1rem;
+  }
+
+  .icon.profile {
+    background-image: url("./media/icons/profile.png");
+    width: 40px;
+    height: 40px;
+  }
 }
