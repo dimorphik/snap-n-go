@@ -19,6 +19,10 @@ body {
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./media/images/logo.png");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 1;
 }
 
 #splash {
@@ -66,6 +70,7 @@ h5 {
 #map {
   position: relative;
   max-width: 585px;
+  background-color: #fff;
   background-image: url("./media/images/map-default.png");
   background-size: cover;
   -moz-background-size: cover;
@@ -261,6 +266,8 @@ button.icon {
 
 #popover {
   position: absolute;
+  max-width: 585px;
+  margin: 0 auto;
   left: 0;
   right: 0;
   top: var(--doc-height);
