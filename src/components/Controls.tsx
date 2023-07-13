@@ -3,7 +3,9 @@ const Controls = (props: any) => {
     <article id="map-controls">
       <section id="search" onClick={props.onSearchClicked}>
         <span className="icon search"></span>
-        <span className="search-text">{props.populated ? "California College of the Arts" : "Search"}</span>
+        <span className="search-text">
+          {props.populated ? "California College of the Arts" : "Click here to start the demo!"}
+        </span>
         <span className="icon profile"></span>
       </section>
       <section id="utilities">
