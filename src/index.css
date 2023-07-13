@@ -29,6 +29,9 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  max-width: 585px;
+  background-color: #fff;
+  margin: 0 auto;
   height: 100vh;
   height: var(--doc-height);
 }
